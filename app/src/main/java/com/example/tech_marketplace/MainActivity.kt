@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "intro") {
+    NavHost(navController = navController, startDestination = "onboard") {
         composable("intro") {
             IntroView(navController = navController)
         }
