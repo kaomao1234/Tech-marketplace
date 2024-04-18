@@ -41,14 +41,20 @@ fun OnboardView(navController: NavController) {
             { Registration() }
         )
     }
-    val pagerState = rememberPagerState(pageCount = { heroBodies.size })
+    val pagerState = rememberPagerState(pageCount = { heroBodies.size }, initialPage = 3)
     val onNext = {
-        if (pagerState.currentPage + 1 < heroBodies.size) {
-            coroutineScope.launch {
-                pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
+        if (pagerState.currentPage == 3) {
+            navController.navigate("main")
+        } else {
+            if (pagerState.currentPage + 1 < heroBodies.size) {
+                coroutineScope.launch {
+                    pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
+                }
             }
         }
+
     }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
