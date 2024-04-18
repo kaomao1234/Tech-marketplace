@@ -2,6 +2,7 @@ package com.example.tech_marketplace.views.onboard
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
@@ -34,9 +35,10 @@ fun Registration() {
     }
     HorizontalPager(
         state = pagerState,
+        pageSpacing = 10.dp,
         modifier = Modifier
             .fillMaxSize()
-            .padding(vertical = 56.dp, horizontal = 32.dp), userScrollEnabled = false
+            .padding( horizontal = 32.dp).padding(top = 30.dp), userScrollEnabled = false
     ) {
         val key = contentPagerMap.keys.toList()[it]
         contentPagerMap[key]?.invoke(onPush)
