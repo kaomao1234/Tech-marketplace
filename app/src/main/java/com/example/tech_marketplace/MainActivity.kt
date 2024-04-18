@@ -20,14 +20,31 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.tech_marketplace.ui.theme.TechmarketplaceTheme
+import com.example.tech_marketplace.viewmodels.AccountViewModel
+import com.example.tech_marketplace.viewmodels.CheckOutViewModel
+import com.example.tech_marketplace.viewmodels.HomeViewModel
+import com.example.tech_marketplace.viewmodels.OnboardViewModel
+import com.example.tech_marketplace.viewmodels.SearchViewModel
 import com.example.tech_marketplace.views.intro.IntroView
 import com.example.tech_marketplace.views.main.MainView
 import com.example.tech_marketplace.views.onboard.OnboardView
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
 import kotlin.reflect.KClass
+
+val appModule = module {
+    viewModel { OnboardViewModel() };
+    viewModel { HomeViewModel() };
+    viewModel { SearchViewModel() };
+    viewModel { CheckOutViewModel() };
+    viewModel { AccountViewModel() };
+}
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContent {
             TechmarketplaceTheme {
@@ -40,6 +57,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        startKoin { appModule }
     }
 }
 
