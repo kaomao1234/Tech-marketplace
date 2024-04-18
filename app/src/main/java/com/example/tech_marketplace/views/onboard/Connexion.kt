@@ -1,5 +1,6 @@
 package com.example.tech_marketplace.views.onboard
 
+import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -29,17 +30,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.tech_marketplace.R
 import com.example.tech_marketplace.ui.theme.CustomColor
+import com.example.tech_marketplace.viewmodels.OnboardViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Connexion(onPush:(String)->Unit) {
     val coroutine = rememberCoroutineScope()
-    val onScrollTo: (String) -> Unit = { route ->
-        onPush(route)
-    }
+    val viewModel:OnboardViewModel = viewModel()
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Connextion",
@@ -49,7 +50,7 @@ fun Connexion(onPush:(String)->Unit) {
         )
         Spacer(modifier = Modifier.weight(1F))
         ElevatedButton(
-            onClick = { onScrollTo("create_account") },
+            onClick = { onPush("create_account") },
             contentPadding = PaddingValues(vertical = 16.dp),
             shape = RoundedCornerShape(4.dp),
             modifier = Modifier.fillMaxWidth(),
@@ -62,7 +63,7 @@ fun Connexion(onPush:(String)->Unit) {
         }
         Spacer(modifier = Modifier.height(20.dp))
         ElevatedButton(
-            onClick = { },
+            onClick = viewModel::onConnectWithGoogle,
             contentPadding = PaddingValues(vertical = 16.dp),
             shape = RoundedCornerShape(4.dp),
             modifier = Modifier.fillMaxWidth(),
@@ -90,7 +91,7 @@ fun Connexion(onPush:(String)->Unit) {
         }
         Spacer(modifier = Modifier.height(16.dp))
         ElevatedButton(
-            onClick = { },
+            onClick = viewModel::onConnectWithFacebook,
             contentPadding = PaddingValues(vertical = 16.dp),
             shape = RoundedCornerShape(4.dp),
             modifier = Modifier.fillMaxWidth(),
@@ -129,7 +130,7 @@ fun Connexion(onPush:(String)->Unit) {
                 color = CustomColor.Yellow400
             )
             TextButton(
-                onClick = { onScrollTo("login") }, colors = ButtonDefaults.textButtonColors(
+                onClick = { onPush("login") }, colors = ButtonDefaults.textButtonColors(
                     contentColor = CustomColor.Yellow400,
                     containerColor = Color.Transparent
                 ), contentPadding = PaddingValues(
