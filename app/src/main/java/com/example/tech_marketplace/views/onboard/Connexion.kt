@@ -35,12 +35,10 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun Connexion(pagerState: PagerState) {
+fun Connexion(onPush:(String)->Unit) {
     val coroutine = rememberCoroutineScope()
-    val onScrollTo: (Int) -> Unit = { index ->
-        coroutine.launch {
-            pagerState.animateScrollToPage(index)
-        }
+    val onScrollTo: (String) -> Unit = { route ->
+        onPush(route)
     }
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
@@ -51,7 +49,7 @@ fun Connexion(pagerState: PagerState) {
         )
         Spacer(modifier = Modifier.weight(1F))
         ElevatedButton(
-            onClick = { onScrollTo(2) },
+            onClick = { onScrollTo("create_account") },
             contentPadding = PaddingValues(vertical = 16.dp),
             shape = RoundedCornerShape(4.dp),
             modifier = Modifier.fillMaxWidth(),
@@ -131,7 +129,7 @@ fun Connexion(pagerState: PagerState) {
                 color = CustomColor.Yellow400
             )
             TextButton(
-                onClick = { onScrollTo(3) }, colors = ButtonDefaults.textButtonColors(
+                onClick = { onScrollTo("login") }, colors = ButtonDefaults.textButtonColors(
                     contentColor = CustomColor.Yellow400,
                     containerColor = Color.Transparent
                 ), contentPadding = PaddingValues(

@@ -6,6 +6,6 @@ import androidx.compose.runtime.Composable
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun Login(pagerState: PagerState){
+fun Login(onPush:(String)->Unit){
 
 }
