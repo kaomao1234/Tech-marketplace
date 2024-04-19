@@ -1,4 +1,4 @@
-package com.example.tech_marketplace.views.onboard
+package com.example.tech_marketplace.views.onboard.registration
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
@@ -10,13 +10,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,14 +28,15 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.tech_marketplace.components.AccountField
 import com.example.tech_marketplace.ui.theme.CustomColor
 import com.example.tech_marketplace.viewmodels.OnboardViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun CreateAccount(onPush: (String) -> Unit) {
-    val viewModel: OnboardViewModel = viewModel()
+fun Login(onPush: (String) -> Unit) {
+    val viewModel: OnboardViewModel = koinViewModel()
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
-            text = "Create an account",
+            text = "Login",
             color = Color.White,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold
@@ -47,32 +48,25 @@ fun CreateAccount(onPush: (String) -> Unit) {
                 .padding(horizontal = 16.dp)
         ) {
             AccountField(
-                title = "Full name",
-                placeHolderText = "Full name",
-                controller = viewModel.createAccountFullName,
-                onChange = { value -> viewModel.onChange(value, viewModel.createAccountFullName) }
-            )
-            Spacer(modifier = Modifier.height(24.dp))
-            AccountField(
                 title = "Email",
                 placeHolderText = "Email",
-                controller = viewModel.createAccountEmail,
-                onChange = { value -> viewModel.onChange(value, viewModel.createAccountEmail) },
+                controller = viewModel.loginEmail,
+                onChange = { value -> viewModel.onChange(value, viewModel.loginEmail) },
                 keyboardType = KeyboardType.Email
             )
             Spacer(modifier = Modifier.height(24.dp))
             AccountField(
                 title = "Password",
                 placeHolderText = "Password",
-                controller = viewModel.createAccountPassword,
-                onChange = { value -> viewModel.onChange(value, viewModel.createAccountPassword) },
+                controller = viewModel.loginPassword,
+                onChange = { value -> viewModel.onChange(value, viewModel.loginPassword) },
                 secure = true,
                 keyboardType = KeyboardType.Password
             )
         }
         Spacer(modifier = Modifier.height(32.dp))
         ElevatedButton(
-            onClick = viewModel::onCreateAccountValidate,
+            onClick = viewModel::onLoginValidate,
             contentPadding = PaddingValues(vertical = 16.dp),
             shape = RoundedCornerShape(4.dp),
             modifier = Modifier.fillMaxWidth(),
@@ -96,7 +90,7 @@ fun CreateAccount(onPush: (String) -> Unit) {
                 color = CustomColor.Yellow400
             )
             TextButton(
-                onClick = { onPush("login") }, colors = ButtonDefaults.textButtonColors(
+                onClick = { onPush("connexion") }, colors = ButtonDefaults.textButtonColors(
                     contentColor = CustomColor.Yellow400,
                     containerColor = Color.Transparent
                 ), contentPadding = PaddingValues(
@@ -104,12 +98,11 @@ fun CreateAccount(onPush: (String) -> Unit) {
                 )
             ) {
                 Text(
-                    text = "Login",
+                    text = "Sign-up",
                     fontSize = 18.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
         }
     }
-
 }

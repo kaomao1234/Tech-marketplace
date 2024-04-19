@@ -1,4 +1,4 @@
-package com.example.tech_marketplace.views.onboard
+package com.example.tech_marketplace.views.onboard.registration
 
 import android.util.Log
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -35,12 +35,13 @@ import com.example.tech_marketplace.R
 import com.example.tech_marketplace.ui.theme.CustomColor
 import com.example.tech_marketplace.viewmodels.OnboardViewModel
 import kotlinx.coroutines.launch
+import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Connexion(onPush:(String)->Unit) {
     val coroutine = rememberCoroutineScope()
-    val viewModel:OnboardViewModel = viewModel()
+    val viewModel:OnboardViewModel = koinViewModel()
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Connextion",

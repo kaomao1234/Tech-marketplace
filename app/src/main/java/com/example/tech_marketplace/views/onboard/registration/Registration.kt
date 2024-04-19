@@ -1,18 +1,16 @@
-package com.example.tech_marketplace.views.onboard
+package com.example.tech_marketplace.views.onboard.registration
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -38,7 +36,8 @@ fun Registration() {
         pageSpacing = 10.dp,
         modifier = Modifier
             .fillMaxSize()
-            .padding( horizontal = 32.dp).padding(top = 30.dp), userScrollEnabled = false
+            .padding(horizontal = 32.dp)
+            .padding(top = 30.dp), userScrollEnabled = false
     ) {
         val key = contentPagerMap.keys.toList()[it]
         contentPagerMap[key]?.invoke(onPush)

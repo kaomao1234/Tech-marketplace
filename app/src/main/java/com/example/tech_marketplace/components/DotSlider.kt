@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun DotSlider(maxDot: Int, selected: Int) {
+fun DotSlider(maxDot: Int, selected: Int,color: Color) {
 
     LazyRow(
         modifier = Modifier.width((8.5 * maxDot).dp).height(7.dp),
@@ -39,7 +39,7 @@ fun DotSlider(maxDot: Int, selected: Int) {
                         if (index == selected) 7.dp else 5.dp
                     )
                     .graphicsLayer(alpha = alpha.value)
-                    .background(Color.White, shape = CircleShape)
+                    .background(color, shape = CircleShape)
             )
         }
     }
