@@ -52,6 +52,8 @@ android {
 }
 
 dependencies {
+    implementation("br.com.devsrsouza.compose.icons:feather:1.1.0")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("io.insert-koin:koin-core")
     implementation("io.insert-koin:koin-android:3.6.0-wasm-alpha2")
     implementation("androidx.navigation:navigation-compose:2.7.7")
