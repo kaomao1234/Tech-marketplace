@@ -29,8 +29,8 @@ fun AccountField(
     title: String,
     placeHolderText: String,
     controller: MutableState<String>,
-    keyboardType: KeyboardType? = KeyboardType.Text,
-    secure: Boolean? = false,
+    keyboardType: KeyboardType = KeyboardType.Text,
+    secure: Boolean = false,
     onChange: (value:String) -> Unit
 ) {
     Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.Start) {
@@ -53,8 +53,8 @@ fun AccountField(
                     fontWeight = FontWeight.Normal
                 )
             },
-            keyboardOptions = KeyboardOptions(keyboardType = keyboardType!!),
-            visualTransformation = if (secure!!) PasswordVisualTransformation() else VisualTransformation.None,
+            keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+            visualTransformation = if (secure) PasswordVisualTransformation() else VisualTransformation.None,
             colors = TextFieldDefaults.colors(
                 focusedPlaceholderColor = Color.White,
                 unfocusedPlaceholderColor = Color.White,
