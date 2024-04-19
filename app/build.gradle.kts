@@ -54,8 +54,18 @@ android {
 dependencies {
     implementation("br.com.devsrsouza.compose.icons:feather:1.1.0")
     implementation("androidx.navigation:navigation-compose:2.7.7")
-    implementation("io.insert-koin:koin-core")
+
+
+    //koin
+    implementation("io.insert-koin:koin-core:3.6.0-wasm-alpha2")
+    implementation("io.insert-koin:koin-core-coroutines:3.6.0-wasm-alpha2")
     implementation("io.insert-koin:koin-android:3.6.0-wasm-alpha2")
+    implementation("io.insert-koin:koin-androidx-compose:3.6.0-wasm-alpha2")
+    runtimeOnly("io.insert-koin:koin-compose:3.6.0-wasm-alpha2")
+    runtimeOnly("io.insert-koin:koin-androidx-workmanager:3.6.0-wasm-alpha2")
+    implementation("io.insert-koin:koin-androidx-compose-navigation:3.6.0-wasm-alpha2")
+    implementation("io.insert-koin:koin-android-test:3.6.0-wasm-alpha2")
+
     implementation("androidx.navigation:navigation-compose:2.7.7")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
