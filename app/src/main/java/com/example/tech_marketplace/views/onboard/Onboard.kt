@@ -14,7 +14,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
@@ -27,6 +26,7 @@ import androidx.navigation.NavController
 import com.example.tech_marketplace.R
 import com.example.tech_marketplace.components.DotSlider
 import com.example.tech_marketplace.ui.theme.CustomColor
+import com.example.tech_marketplace.views.onboard.registration.Registration
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -41,7 +41,7 @@ fun OnboardView(navController: NavController) {
             { Registration() }
         )
     }
-    val pagerState = rememberPagerState(pageCount = { heroBodies.size }, initialPage = 3)
+    val pagerState = rememberPagerState(pageCount = { heroBodies.size }, initialPage = 0)
     val onNext = {
         if (pagerState.currentPage == 3) {
             navController.navigate("main")
@@ -71,7 +71,7 @@ fun OnboardView(navController: NavController) {
             heroBodies[it]()
         }
         Spacer(modifier = Modifier.height(40.dp))
-        DotSlider(maxDot = heroBodies.size, selected = pagerState.currentPage)
+        DotSlider(maxDot = heroBodies.size, selected = pagerState.currentPage, color = Color.White)
         Spacer(modifier = Modifier.height(40.dp))
         TextButton(
             onClick = onNext,
