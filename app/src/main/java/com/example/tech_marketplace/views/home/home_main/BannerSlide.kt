@@ -1,4 +1,4 @@
-package com.example.tech_marketplace.views.home.home
+package com.example.tech_marketplace.views.home.home_main
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image

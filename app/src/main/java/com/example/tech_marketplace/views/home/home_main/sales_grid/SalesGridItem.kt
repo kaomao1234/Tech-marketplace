@@ -1,4 +1,4 @@
-package com.example.tech_marketplace.views.home.home.sales_grid
+package com.example.tech_marketplace.views.home.home_main.sales_grid
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

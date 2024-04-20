@@ -1,4 +1,4 @@
-package com.example.tech_marketplace.views.home.home
+package com.example.tech_marketplace.views.home.home_main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,10 +17,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.tech_marketplace.viewmodels.HomeViewModel
-import com.example.tech_marketplace.views.home.home.sales_grid.SalesGrid
+import com.example.tech_marketplace.views.home.home_main.sales_grid.SalesGrid
 
 @Composable
-fun Home(navController: NavController, viewModel: HomeViewModel) {
+fun HomeMain(navController: NavController, viewModel: HomeViewModel) {
 
     Scaffold(containerColor = Color.White) {
         Column(
