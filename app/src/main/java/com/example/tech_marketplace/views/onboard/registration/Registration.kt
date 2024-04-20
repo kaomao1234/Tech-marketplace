@@ -11,17 +11,20 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.tech_marketplace.viewmodels.OnboardViewModel
 import kotlinx.coroutines.launch
+import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Registration() {
+    val viewModel: OnboardViewModel = koinViewModel()
     val coroutine = rememberCoroutineScope()
     val contentPagerMap = remember {
         mutableMapOf<String, @Composable() (((route: String) -> Unit) -> Unit)>(
-            "connexion" to { Connexion(it) },
-            "create_account" to { CreateAccount(onPush = it) },
-            "login" to { Login(onPush = it) }
+            "connexion" to { Connexion(viewModel,it) },
+            "create_account" to { CreateAccount(viewModel,onPush = it) },
+            "login" to { Login(viewModel,onPush = it) }
         )
     }
     val pagerState = rememberPagerState(pageCount = { contentPagerMap.size }, initialPage = 0)
