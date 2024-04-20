@@ -1,14 +1,11 @@
 package com.example.tech_marketplace.viewmodels
 
-import android.util.Log
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.tech_marketplace.R
 import com.example.tech_marketplace.models.Product
 import com.example.tech_marketplace.models.ProductSale
 
-data class CateInfo(val label: String, val items: List<Product>);
 class HomeViewModel : ViewModel() {
     val productBanners = listOf<Product>(
         Product(label = "Bose Home Speaker", 279, image = R.drawable.bose_speaker),
@@ -24,21 +21,20 @@ class HomeViewModel : ViewModel() {
         )
 
 
-    val cateInfo = mutableStateOf(
-        CateInfo(
-            "Laptop", listOf(
-                Product(
-                    label = "Surface laptop 3",
-                    price = 999,
-                    image = R.drawable.surface_laptop
-                ),
-                Product(label = "XPS laptop 13", price = 899, image = R.drawable.xps_laptop),
-                Product(label = "LG Gram 17", price = 1399, image = R.drawable.lg_gram),
-                Product(label = "Macbook pro 13", price = 1299, image = R.drawable.macbook),
-                Product(label = "Huawei", price = 949, image = R.drawable.huawei)
-            )
+    val cateInfoLabel = mutableStateOf("Laptop")
+    val cateInfoItems = mutableStateOf(
+        listOf<Product>(
+            Product(
+                label = "Surface laptop 3",
+                price = 999,
+                image = R.drawable.surface_laptop
+            ),
+            Product(label = "XPS laptop 13", price = 899, image = R.drawable.xps_laptop),
+            Product(label = "LG Gram 17", price = 1399, image = R.drawable.lg_gram),
+            Product(label = "Macbook pro 13", price = 1299, image = R.drawable.macbook),
+            Product(label = "Huawei", price = 949, image = R.drawable.huawei)
         )
-    )
+    );
     val categories: List<String> = listOf(
         "All", "Computer", "Accessories", "Smartphones", "Smart objects", "Speaker", "Software"
     )
@@ -46,13 +42,16 @@ class HomeViewModel : ViewModel() {
 
     fun onSorting(key: String = "Ascending") {
         if (key == "Ascending") {
-            cateInfo.value.items.sortedBy { it.price }
+            cateInfoItems.value = cateInfoItems.value.sortedBy { it.price }
         } else if (key == "Descending") {
-            cateInfo.value.items.sortedByDescending { it.price }
+            cateInfoItems.value = cateInfoItems.value.sortedByDescending { it.price }
         }
 
     }
 
+    fun onCateInfoItemPress(value: Product) {
+
+    }
 
     fun onBannerPress(value: Product) {
 
@@ -64,19 +63,4 @@ class HomeViewModel : ViewModel() {
     }
 
     fun onProductSalePress(value: ProductSale) {}
-    fun onCategories(callBack: () -> Unit = {}) {
-        callBack()
-    }
-
-    fun onFavorites() {
-
-    }
-
-    fun onGifts() {
-
-    }
-
-    fun onBestSelling() {
-
-    }
 }
