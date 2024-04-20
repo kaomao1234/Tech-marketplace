@@ -18,6 +18,7 @@ import com.example.tech_marketplace.viewmodels.viewModelModule
 import com.example.tech_marketplace.views.intro.IntroView
 import com.example.tech_marketplace.views.main.MainView
 import com.example.tech_marketplace.views.onboard.OnboardView
+import org.koin.android.ext.koin.androidContext
 import org.koin.android.scope.AndroidScopeComponent
 import org.koin.androidx.scope.activityScope
 import org.koin.core.annotation.KoinInternalApi
@@ -25,8 +26,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.scope.Scope
 
 
-class MainActivity : ComponentActivity(), AndroidScopeComponent {
-    override val scope: Scope by activityScope()
+class MainActivity : ComponentActivity() {
 
     @OptIn(KoinInternalApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +45,7 @@ class MainActivity : ComponentActivity(), AndroidScopeComponent {
         }
 
         startKoin {
+            androidContext(this@MainActivity)
             modules(viewModelModule)
         }
 
