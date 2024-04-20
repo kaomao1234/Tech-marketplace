@@ -34,10 +34,10 @@ import kotlinx.coroutines.launch
 
 
 sealed class BottomNavItem(val route: String, val icon: ImageVector) {
-    object Home : BottomNavItem("home", Icons.Default.Home)
-    object Search : BottomNavItem("search", Icons.Default.Search)
-    object CheckOut : BottomNavItem("checkout", Icons.Default.ShoppingCart)
-    object Account : BottomNavItem("account", Icons.Default.AccountCircle)
+    data object Home : BottomNavItem("home", Icons.Default.Home)
+    data object Search : BottomNavItem("search", Icons.Default.Search)
+    data object CheckOut : BottomNavItem("checkout", Icons.Default.ShoppingCart)
+    data object Account : BottomNavItem("account", Icons.Default.AccountCircle)
 }
 
 @OptIn(ExperimentalFoundationApi::class)
