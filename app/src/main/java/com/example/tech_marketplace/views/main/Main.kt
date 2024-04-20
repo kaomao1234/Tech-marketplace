@@ -51,7 +51,7 @@ fun MainView(navController: NavController) {
             { AccountView() }
         )
     }
-    val pagerState = rememberPagerState(pageCount = { contentPagerMap.size }, initialPage = 0)
+    val pagerState = rememberPagerState(pageCount = { contentPagerMap.size }, initialPage = 1)
     val coroutine = rememberCoroutineScope()
     val onPush: (index: Int) -> Unit = {
         coroutine.launch {
@@ -67,6 +67,7 @@ fun MainView(navController: NavController) {
         )
     }
     Scaffold(
+        containerColor = Color.White,
         bottomBar = {
             NavigationBar(containerColor = CustomColor.Slate100) {
                 views.forEachIndexed { index, bottomNavItem ->
@@ -89,7 +90,8 @@ fun MainView(navController: NavController) {
             modifier = Modifier
                 .padding(it)
                 .fillMaxSize()
-                .padding(horizontal = 15.dp, vertical = 24.dp)
+                .padding(horizontal = 15.dp)
+                .padding(top = 24.dp)
         ) { index ->
             contentPagerMap[index]()
         }
