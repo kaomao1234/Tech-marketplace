@@ -1,5 +1,6 @@
 package com.example.tech_marketplace.views.home.category_info.sort_and_filter
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -63,7 +64,8 @@ fun FilterDropdownButton() {
 
             DropdownMenu(
                 expanded = filterExpand.value,
-                onDismissRequest = { onExpand(false) }
+                onDismissRequest = { onExpand(false) },
+                modifier = Modifier.background(Color.White)
             ) {
 
             }

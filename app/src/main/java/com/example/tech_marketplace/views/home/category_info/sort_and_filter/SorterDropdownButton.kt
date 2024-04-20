@@ -2,6 +2,7 @@ package com.example.tech_marketplace.views.home.category_info.sort_and_filter
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -23,6 +24,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -65,7 +67,8 @@ fun SorterDropdownButton(onSorting: (String) -> Unit) {
             ),
 
             colors = ButtonDefaults.elevatedButtonColors(
-                contentColor = CustomColor.Gray400
+                contentColor = CustomColor.Gray400,
+                containerColor = Color.White
             )
         ) {
             Row(
@@ -86,14 +89,16 @@ fun SorterDropdownButton(onSorting: (String) -> Unit) {
         }
         DropdownMenu(
             expanded = sortExpand.value,
-            onDismissRequest = { onExpand(false) }
+            onDismissRequest = { onExpand(false) },
+            modifier = Modifier.background(Color.White)
         ) {
 
             sortKeys.forEach {
                 DropdownMenuItem(
                     text = { Text(text = it) },
                     colors = MenuDefaults.itemColors(
-                        textColor = CustomColor.Gray400
+                        textColor = CustomColor.Gray400,
+
                     ),
                     onClick = {
                         onItemsPress(it)

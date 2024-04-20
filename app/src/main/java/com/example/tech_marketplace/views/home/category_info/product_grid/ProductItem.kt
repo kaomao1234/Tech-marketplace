@@ -31,7 +31,6 @@ fun ProductItem(props: Product, viewState: String, onPress: () -> Unit) {
     ElevatedButton(
         onClick = onPress,
         modifier = Modifier
-            .padding(end = if (viewState == "grid") 8.dp else 0.dp, bottom = 8.dp)
             .height(if (viewState == "grid") 200.dp else 100.dp),
         contentPadding = PaddingValues(if (viewState == "grid") 20.dp else 10.dp),
         colors = ButtonDefaults.elevatedButtonColors(

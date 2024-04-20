@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -28,24 +29,23 @@ import org.koin.core.qualifier.named
 fun HomeView() {
     val localNavController = rememberNavController()
     val viewModel: HomeViewModel = koinViewModel()
-    Scaffold {
+    Scaffold(containerColor = Color.White) {
         NavHost(
             navController = localNavController,
-            startDestination ="category_info",
+            startDestination = "home",
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it)
         ) {
             composable("home") {
-                Home(navController = localNavController,viewModel)
+                Home(navController = localNavController, viewModel)
             }
             composable("categories") {
-                CategoriesHome(navController = localNavController,viewModel)
+                CategoriesHome(navController = localNavController, viewModel)
             }
             composable("category_info") {
-                CategoryInfoHome(navController = localNavController,viewModel)
+                CategoryInfoHome(navController = localNavController, viewModel)
             }
-
         }
     }
 }

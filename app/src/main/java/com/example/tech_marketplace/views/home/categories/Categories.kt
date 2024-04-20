@@ -1,8 +1,10 @@
 package com.example.tech_marketplace.views.home.categories
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -33,11 +35,11 @@ import com.example.tech_marketplace.viewmodels.HomeViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun CategoriesHome(navController: NavController,viewModel: HomeViewModel) {
+fun CategoriesHome(navController: NavController, viewModel: HomeViewModel) {
     val onBack: () -> Unit = {
         navController.popBackStack()
     }
-    Scaffold(modifier = Modifier.fillMaxSize()) {
+    Scaffold(modifier = Modifier.fillMaxSize(), containerColor = Color.White) {
         Column(
             modifier = Modifier
                 .padding(it)
@@ -57,9 +59,20 @@ fun CategoriesHome(navController: NavController,viewModel: HomeViewModel) {
 
             }
             Spacer(modifier = Modifier.height(26.dp))
-            Text("Categories", fontWeight = FontWeight.ExtraBold, fontSize = 24.sp)
+            Text(
+                "Categories",
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 24.sp,
+                color = Color.Black
+            )
             Spacer(modifier = Modifier.height(16.dp))
-            LazyColumn() {
+            LazyColumn(
+                modifier = Modifier
+                    .padding()
+                    .fillMaxSize(),
+                contentPadding = PaddingValues(top = 8.dp, start = 8.dp, end = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
                 items(viewModel.categories.size) {
                     val item = viewModel.categories[it]
                     ElevatedButton(
@@ -68,7 +81,6 @@ fun CategoriesHome(navController: NavController,viewModel: HomeViewModel) {
                                 { navController.navigate("category_info") })
                         },
                         modifier = Modifier
-                            .padding(vertical = 8.dp)
                             .fillMaxWidth()
                             .height(77.dp),
                         colors = ButtonDefaults.elevatedButtonColors(

@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,13 +22,13 @@ import com.example.tech_marketplace.views.home.home.sales_grid.SalesGrid
 @Composable
 fun Home(navController: NavController, viewModel: HomeViewModel) {
 
-    Scaffold {
+    Scaffold(containerColor = Color.White) {
         Column(
             modifier = Modifier
                 .padding(it)
                 .verticalScroll(rememberScrollState()), horizontalAlignment = Alignment.Start
         ) {
-            Text("Home", fontWeight = FontWeight.ExtraBold, fontSize = 32.sp)
+            Text("Home", fontWeight = FontWeight.ExtraBold, fontSize = 32.sp, color = Color.Black)
             Spacer(modifier = Modifier.height(24.dp))
             BannerSlide(items = viewModel.productBanners, onBannerPress = viewModel::onBannerPress)
             Spacer(modifier = Modifier.height(29.dp))

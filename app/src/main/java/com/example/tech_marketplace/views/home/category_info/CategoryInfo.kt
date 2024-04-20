@@ -54,7 +54,12 @@ fun CategoryInfoHome(navController: NavController, viewModel: HomeViewModel) {
 
         }
         Spacer(modifier = Modifier.height(26.dp))
-        Text(viewModel.cateInfoLabel.value, fontWeight = FontWeight.ExtraBold, fontSize = 24.sp)
+        Text(
+            viewModel.cateInfoLabel.value,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 24.sp,
+            color = Color.Black
+        )
         Spacer(modifier = Modifier.height(15.dp))
         SortAndFilter(
             onSorting = { it -> viewModel.onSorting(it) },

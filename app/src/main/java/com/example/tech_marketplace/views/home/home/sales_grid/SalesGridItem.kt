@@ -30,7 +30,6 @@ fun SalesGridItem(model: ProductSale, onProductPress: () -> Unit) {
     ElevatedButton(
         onClick = onProductPress,
         modifier = Modifier
-            .padding(end = 10.dp, bottom = 10.dp)
             .height(250.dp),
         colors = ButtonDefaults.elevatedButtonColors(
             contentColor = CustomColor.Blue700,
