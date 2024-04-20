@@ -32,8 +32,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun CreateAccount(onPush: (String) -> Unit) {
-    val viewModel: OnboardViewModel = koinViewModel()
+fun CreateAccount(viewModel: OnboardViewModel,onPush: (String) -> Unit) {
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Create an account",

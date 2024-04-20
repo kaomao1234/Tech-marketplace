@@ -32,8 +32,7 @@ import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun Login(onPush: (String) -> Unit) {
-    val viewModel: OnboardViewModel = koinViewModel()
+fun Login(viewModel: OnboardViewModel,onPush: (String) -> Unit) {
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Login",

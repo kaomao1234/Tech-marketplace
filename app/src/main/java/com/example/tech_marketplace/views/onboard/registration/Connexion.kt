@@ -39,9 +39,8 @@ import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun Connexion(onPush:(String)->Unit) {
+fun Connexion(viewModel: OnboardViewModel,onPush:(String)->Unit) {
     val coroutine = rememberCoroutineScope()
-    val viewModel:OnboardViewModel = koinViewModel()
     Column(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Connextion",
