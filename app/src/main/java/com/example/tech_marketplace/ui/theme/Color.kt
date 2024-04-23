@@ -17,8 +17,12 @@ class CustomColor {
         val Slate600 = Color(0xFF415A93);
         val Yellow400 = Color(0xFFFBDF00);
         val Slate100 = Color(0xFFEFF5FB);
+        val Stone200 = Color(0xFFEBEBE4)
+        val Neutral500 = Color(0xFF6F7972);
+        val Red200 = Color(0xFFF5D8C0)
         val Gray400 = Color(0xFFA7A9BE);
         val Blue100 = Color(0xFFE0ECF8);
+        val Emerald500 = Color(0xFF2DB57D)
     }
 }
 

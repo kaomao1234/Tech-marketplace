@@ -31,10 +31,17 @@ fun AccountField(
     controller: MutableState<String>,
     keyboardType: KeyboardType = KeyboardType.Text,
     secure: Boolean = false,
-    onChange: (value:String) -> Unit
+    titleColor: Color=Color.White,
+    placeHolderColor: Color = Color.White,
+    containerColor: Color = Color.Transparent,
+    textColor: Color = Color.White,
+    indicatorColor: Color = Color.Transparent,
+    cursorColor: Color = Color.White,
+    borderColor: Color = Color.White,
+    onChange: (value: String) -> Unit
 ) {
     Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.Start) {
-        Text(text = title, color = Color.White, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
+        Text(text = title, color = titleColor, fontSize = 18.sp, fontWeight = FontWeight.SemiBold)
         Spacer(modifier = Modifier.height(8.dp))
         TextField(
             value = controller.value,
@@ -43,12 +50,11 @@ fun AccountField(
                 .fillMaxWidth()
                 .border(
                     shape = RoundedCornerShape(4.dp),
-                    border = BorderStroke(1.dp, color = Color.White)
+                    border = BorderStroke(1.dp, color = borderColor)
                 ),
             placeholder = {
                 Text(
                     text = placeHolderText,
-                    color = Color.White,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Normal
                 )
@@ -56,19 +62,18 @@ fun AccountField(
             keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
             visualTransformation = if (secure) PasswordVisualTransformation() else VisualTransformation.None,
             colors = TextFieldDefaults.colors(
-                focusedPlaceholderColor = Color.White,
-                unfocusedPlaceholderColor = Color.White,
-                unfocusedContainerColor = Color.Transparent,
-                focusedContainerColor = Color.Transparent,
-                focusedTextColor = Color.White,
-                unfocusedTextColor = Color.White,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
-                cursorColor = Color.White
+                focusedPlaceholderColor = placeHolderColor,
+                unfocusedPlaceholderColor = placeHolderColor,
+                unfocusedContainerColor = containerColor,
+                focusedContainerColor = containerColor,
+                focusedTextColor = textColor,
+                unfocusedTextColor = textColor,
+                focusedIndicatorColor = indicatorColor,
+                unfocusedIndicatorColor = indicatorColor,
+                cursorColor = cursorColor
 
             )
         )
 
     }
-
 }

@@ -6,6 +6,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -28,6 +29,8 @@ fun HomeView() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(it)
+                .padding(horizontal = 15.dp)
+                .padding(top = 24.dp)
         ) {
             composable("home") {
                 HomeMain(navController = localNavController, viewModel)

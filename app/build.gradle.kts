@@ -6,6 +6,9 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+
+
+
 android {
     namespace = "com.example.tech_marketplace"
     compileSdk = 34
@@ -51,10 +54,11 @@ android {
     }
 }
 
+
 dependencies {
     implementation("br.com.devsrsouza.compose.icons:feather:1.1.0")
     implementation("androidx.navigation:navigation-compose:2.7.7")
-
+    implementation("com.github.binayshaw7777:KotStep:1.1.0")
 
     //koin
     implementation("io.insert-koin:koin-core:3.6.0-wasm-alpha2")

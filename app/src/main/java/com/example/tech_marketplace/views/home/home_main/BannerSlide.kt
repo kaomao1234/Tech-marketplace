@@ -31,14 +31,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tech_marketplace.components.DotSlider
-import com.example.tech_marketplace.models.Product
+import com.example.tech_marketplace.models.ProductModel
 import com.example.tech_marketplace.ui.theme.CustomColor
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun BannerSlide(items: List<Product>, onBannerPress: ((Product) -> Unit)?) {
+fun BannerSlide(items: List<ProductModel>, onBannerPress: ((ProductModel) -> Unit)?) {
     val coroutineScope = rememberCoroutineScope()
     val pagerState = rememberPagerState(initialPage = 0, pageCount = { items.size })
     val isReverse = remember { mutableStateOf(false) }

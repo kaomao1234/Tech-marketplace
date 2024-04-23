@@ -23,11 +23,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.tech_marketplace.models.Product
+import com.example.tech_marketplace.models.ProductModel
 import com.example.tech_marketplace.ui.theme.CustomColor
 
 @Composable
-fun ProductItem(props: Product, viewState: String, onPress: () -> Unit) {
+fun ProductItem(props: ProductModel, viewState: String, onPress: () -> Unit) {
     ElevatedButton(
         onClick = onPress,
         modifier = Modifier

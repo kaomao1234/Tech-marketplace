@@ -22,11 +22,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.tech_marketplace.models.ProductSale
+import com.example.tech_marketplace.models.ProductSaleModel
 import com.example.tech_marketplace.ui.theme.CustomColor
 
 @Composable
-fun SalesGridItem(model: ProductSale, onProductPress: () -> Unit) {
+fun SalesGridItem(model: ProductSaleModel, onProductPress: () -> Unit) {
     ElevatedButton(
         onClick = onProductPress,
         modifier = Modifier

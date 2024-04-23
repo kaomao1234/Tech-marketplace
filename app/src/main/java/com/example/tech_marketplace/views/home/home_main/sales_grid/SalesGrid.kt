@@ -16,12 +16,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.tech_marketplace.models.ProductSale
+import com.example.tech_marketplace.models.ProductSaleModel
 import kotlin.math.round
 
 
 @Composable
-fun SalesGrid(listItem: List<ProductSale>, onProductPress: (ProductSale) -> Unit) {
+fun SalesGrid(listItem: List<ProductSaleModel>, onProductPress: (ProductSaleModel) -> Unit) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Sales",

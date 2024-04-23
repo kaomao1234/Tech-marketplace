@@ -10,10 +10,10 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.tech_marketplace.models.Product
+import com.example.tech_marketplace.models.ProductModel
 
 @Composable
-fun ProductGrid(products: List<Product>, viewState: String, onItemPress: (Product) -> Unit) {
+fun ProductGrid(products: List<ProductModel>, viewState: String, onItemPress: (ProductModel) -> Unit) {
     when (viewState) {
         "grid" -> LazyVerticalGrid(
             verticalArrangement = Arrangement.spacedBy(8.dp),

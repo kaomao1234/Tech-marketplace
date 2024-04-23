@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun DotSlider(maxDot: Int, selected: Int,color: Color) {
-
     LazyRow(
         modifier = Modifier.width((8.5 * maxDot).dp).height(7.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -30,7 +29,7 @@ fun DotSlider(maxDot: Int, selected: Int,color: Color) {
         items(maxDot) { index ->
             val alpha: State<Float> = animateFloatAsState(
                 if (index == selected
-                ) 1f else 0.5f
+                ) 1f else 0.5f, label = "alpha"
             )
             Box(
                 modifier = Modifier

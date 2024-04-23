@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.tech_marketplace.ui.theme.CustomColor
 import com.example.tech_marketplace.views.account.AccountView
-import com.example.tech_marketplace.views.checkout.CheckOutView
+import com.example.tech_marketplace.views.checkout.CheckoutView
 import com.example.tech_marketplace.views.home.HomeView
 import com.example.tech_marketplace.views.search.SearchView
 import kotlinx.coroutines.launch
@@ -47,11 +47,11 @@ fun MainView(navController: NavController) {
         mutableListOf<@Composable() (() -> Unit)>(
             { HomeView() },
             { SearchView() },
-            { CheckOutView() },
+            { CheckoutView() },
             { AccountView() }
         )
     }
-    val pagerState = rememberPagerState(pageCount = { contentPagerMap.size }, initialPage = 1)
+    val pagerState = rememberPagerState(pageCount = { contentPagerMap.size }, initialPage = 0)
     val coroutine = rememberCoroutineScope()
     val onPush: (index: Int) -> Unit = {
         coroutine.launch {
@@ -90,8 +90,8 @@ fun MainView(navController: NavController) {
             modifier = Modifier
                 .padding(it)
                 .fillMaxSize()
-                .padding(horizontal = 15.dp)
-                .padding(top = 24.dp)
+
+
         ) { index ->
             contentPagerMap[index]()
         }

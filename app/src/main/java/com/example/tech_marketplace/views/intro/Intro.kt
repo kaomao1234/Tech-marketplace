@@ -72,9 +72,9 @@ fun IntroView(navController: NavController) {
                     .boxShadow(
                         color = Color.White,
                         blurRadius = 35.dp,
-                        spreadRadius = 1.dp,
+                        spreadRadius = (-8).dp,
                         shape = CircleShape,
-                        offset = DpOffset(-10.dp, -10.dp)
+                        offset = DpOffset((-10).dp, (-10).dp)
                     )
                     .clip(shape = CircleShape)
                     .background(CustomColor.Blue700)

@@ -78,7 +78,11 @@ fun CategoriesHome(navController: NavController, viewModel: HomeViewModel) {
                     ElevatedButton(
                         onClick = {
                             viewModel.onCategoryPress(item,
-                                { navController.navigate("category_info") })
+                                {
+                                    if (item == viewModel.cateInfoLabel.value) {
+                                        navController.navigate("category_info")
+                                    }
+                                })
                         },
                         modifier = Modifier
                             .fillMaxWidth()
